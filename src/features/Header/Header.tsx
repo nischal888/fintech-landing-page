@@ -4,10 +4,15 @@ import Navigation from './Navigation';
 
 const Header: React.FC = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const navLinks = ['Home', 'Services', 'Counter', 'Contact'];
+	const navLinks = [
+		{ label: 'Home', href: '#hometop' },
+		{ label: 'Services', href: '#services' },
+		{ label: 'Counter', href: '#counter' },
+		{ label: 'Contact', href: '#contact' },
+	];
 
 	return (
-		<header className="bg-white py-4 shadow-sm">
+		<header className="sticky top-0 z-50 bg-white py-4 shadow-sm">
 			<Container className="flex items-center justify-between">
 				<div className="text-2xl font-bold text-primary">FinTech</div>
 				<Navigation navLinks={navLinks} />

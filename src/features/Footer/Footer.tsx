@@ -21,7 +21,7 @@ const footerLinks = {
 
 const Footer: React.FC = () => {
 	return (
-		<footer className="bg-accent text-white py-12">
+		<footer className="bg-accent text-white py-12 scroll-mt-20" id="contact">
 			<Container>
 				<div className="flex flex-col lg:flex-row justify-between gap-y-8">
 					{/* Left Column: Brand and Contact */}
@@ -78,13 +78,11 @@ const Footer: React.FC = () => {
 								<h4 className="font-bold text-lg mb-4">About us</h4>
 								<ul className="space-y-2">
 									{footerLinks.about.map((link) => (
-										<li key={link}>
-											<a
-												href="#"
-												className="text-surface text-sm hover:text-white transition-colors"
-											>
-												{link}
-											</a>
+										<li
+											key={link}
+											className="text-surface text-sm hover:text-white transition-colors leading-relaxed whitespace-nowrap"
+										>
+											{link}
 										</li>
 									))}
 								</ul>
@@ -95,13 +93,11 @@ const Footer: React.FC = () => {
 								<h4 className="font-bold text-lg mb-4">Disclosure</h4>
 								<ul className="space-y-2">
 									{footerLinks.disclosure.map((link) => (
-										<li key={link}>
-											<a
-												href="#"
-												className="text-surface text-sm hover:text-white transition-colors"
-											>
-												{link}
-											</a>
+										<li
+											key={link}
+											className="text-surface text-sm hover:text-white transition-colors leading-relaxed whitespace-nowrap"
+										>
+											{link}
 										</li>
 									))}
 								</ul>
@@ -112,13 +108,11 @@ const Footer: React.FC = () => {
 								<h4 className="font-bold text-lg mb-4">Useful links</h4>
 								<ul className="space-y-2">
 									{footerLinks.useful.map((link) => (
-										<li key={link}>
-											<a
-												href="#"
-												className="text-surface text-sm hover:text-white transition-colors"
-											>
-												{link}
-											</a>
+										<li
+											key={link}
+											className="text-surface text-sm hover:text-white transition-colors leading-relaxed whitespace-nowrap"
+										>
+											{link}
 										</li>
 									))}
 								</ul>

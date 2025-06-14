@@ -4,7 +4,10 @@ import LoanForm from './LoanForm';
 
 const HeroSection: React.FC = () => {
 	return (
-		<section className="bg-hero-gradient bg-cover bg-center min-h-screen py-16 md:py-20 lg:py-24">
+		<section
+			className="bg-hero-gradient bg-cover bg-center min-h-screen py-12 md:py-14 lg:py-14 scroll-mt-20"
+			id="hometop"
+		>
 			<Container>
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 					{/* Left Column: Text Content */}

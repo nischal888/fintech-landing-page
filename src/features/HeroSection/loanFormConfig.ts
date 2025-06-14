@@ -21,8 +21,6 @@ export const formConfig: LoanFormField[] = [
 		required: true,
 		validation: (value) => {
 			if (!value) return 'Please choose a loan amount.';
-			const num = parseInt(value.replace(' €', ''), 10);
-			if (isNaN(num) || num < 1000 || num > 20000) return 'Invalid loan amount';
 			return null;
 		},
 	},

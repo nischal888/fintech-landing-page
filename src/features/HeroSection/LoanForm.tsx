@@ -1,6 +1,6 @@
 // src/components/features/Hero/LoanForm.tsx
 import React, { useState, type FormEvent } from 'react';
-import { formConfig } from './loanFormconfig';
+import { formConfig } from './loanFormConfig';
 import Input from '@/components/ui/Input';
 import Checkbox from '@/components/ui/Checkbox';
 import Select from '@/components/ui/Select';
@@ -120,7 +120,7 @@ const LoanForm: React.FC = () => {
 				</div>
 
 				{/* Monthly Payment Display */}
-				<div className="flex flex-col items-center justify-center h-full text-center">
+				<div className="flex flex-col items-center h-full text-center">
 					<label className="block text-sm text-body mb-1">
 						Estimated Monthly Pay
 					</label>
