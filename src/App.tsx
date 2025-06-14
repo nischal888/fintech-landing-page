@@ -1,11 +1,19 @@
+import Header from '@/features/Header/Header';
 import './App.css';
+import HeroSection from '@/features/HeroSection/HeroSection';
+import MainContent from '@/features/MainContent/MainContent';
+import CounterSection from '@/features/CounterSection/CounterSection';
+import Footer from '@/features/Footer/Footer';
 
 function App() {
 	return (
 		<>
-			<div className="bg-blue-500 text-white p-4">
-				<h1 className="text-3xl">Test Tailwind</h1>
-			</div>
+			<Header />
+			<HeroSection />
+
+			<MainContent />
+			<CounterSection />
+			<Footer />
 		</>
 	);
 }
