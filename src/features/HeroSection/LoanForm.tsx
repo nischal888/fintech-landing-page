@@ -191,7 +191,7 @@ const LoanForm: React.FC = () => {
 						<label className="block text-sm text-body mb-1">
 							Estimated Monthly Pay
 						</label>
-						<p className="mt-1 text-xl md:text-2xl text-body flex items-center justify-center">
+						<div className="mt-1 text-xl md:text-2xl text-body flex items-center justify-center">
 							{monthlyPayment ? monthlyPayment.toFixed(2) + ' €' : '-'}
 
 							{/* Tooltip icon wrapper */}
@@ -221,7 +221,7 @@ const LoanForm: React.FC = () => {
 									at 5% interest
 								</div>
 							</div>
-						</p>
+						</div>
 					</div>
 				</div>
 

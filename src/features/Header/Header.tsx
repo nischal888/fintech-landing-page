@@ -30,7 +30,12 @@ const Header: React.FC = () => {
 	return (
 		<header className="sticky top-0 z-50 bg-white py-4 shadow-sm">
 			<Container className="flex items-center justify-between">
-				<div className="text-2xl font-bold text-primary">FinTech</div>
+				<div
+					className="text-2xl font-bold text-primary"
+					aria-label="Company logo"
+				>
+					FinTech
+				</div>
 				<Navigation
 					navLinks={navLinks}
 					activeHref={activeHref}
