@@ -29,7 +29,7 @@ A simple landing page where users can easily apply for loans.
    npm run dev
    ```
 
-The app can be accessed at `http://localhost:5173/`.
+The app can be accessed at `http://localhost:5174/fintech-landing-page`.
 
 ## Changing the Countdown Target
 
