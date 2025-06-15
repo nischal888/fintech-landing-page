@@ -57,7 +57,7 @@ const Header: React.FC = () => {
 			</Container>
 
 			{isMenuOpen && (
-				<div className="md:hidden mt-4">
+				<div className="md:hidden fixed top-0 left-0 w-full bg-white z-50 p-4">
 					<Navigation
 						navLinks={navLinks}
 						isMobile

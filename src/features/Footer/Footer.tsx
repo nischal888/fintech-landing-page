@@ -31,12 +31,10 @@ const Footer: React.FC = () => {
 						<p className="text-surface">Phone: +358 4424 84936</p>
 						<p className="text-surface">Email: info@fintech.com</p>
 						<div className="flex space-x-4 pt-2">
-							{/* Social Icons */}
 							<a
 								href="#"
 								className="text-surface hover:text-white transition-colors"
 							>
-								{/* Facebook Icon */}
 								<svg
 									className="w-6 h-6"
 									fill="currentColor"
@@ -53,7 +51,6 @@ const Footer: React.FC = () => {
 								href="#"
 								className="text-gray-300 hover:text-white transition-colors"
 							>
-								{/* Instagram Icon */}
 								<svg
 									className="w-6 h-6"
 									fill="currentColor"
@@ -69,11 +66,8 @@ const Footer: React.FC = () => {
 						</div>
 					</div>
 
-					{/* Right Column: Link Groups */}
-					{/* Right Column: Link Groups */}
 					<div className="lg:col-span-3">
 						<div className="ml-auto flex flex-col sm:flex-row justify-end gap-12 text-left">
-							{/* About Us */}
 							<div className="flex-1 min-w-[150px]">
 								<h4 className="font-bold text-lg mb-4">About us</h4>
 								<ul className="space-y-2">
@@ -88,7 +82,6 @@ const Footer: React.FC = () => {
 								</ul>
 							</div>
 
-							{/* Disclosure */}
 							<div className="flex-1 min-w-[150px]">
 								<h4 className="font-bold text-lg mb-4">Disclosure</h4>
 								<ul className="space-y-2">
@@ -103,7 +96,6 @@ const Footer: React.FC = () => {
 								</ul>
 							</div>
 
-							{/* Useful Links */}
 							<div className="flex-1 min-w-[150px]">
 								<h4 className="font-bold text-lg mb-4">Useful links</h4>
 								<ul className="space-y-2">

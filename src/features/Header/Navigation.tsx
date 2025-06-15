@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '@/components/ui/Button';
 
 interface NavLink {
 	label: string;
@@ -65,9 +64,6 @@ const Navigation: React.FC<NavigationProps> = ({
 						</a>
 					);
 				})}
-				<Button fullWidth className="mx-4">
-					Apply Now
-				</Button>
 			</nav>
 		);
 	}

@@ -61,7 +61,7 @@ export const formConfig: LoanFormField[] = [
 		label: 'Name',
 		type: 'text',
 		name: 'name',
-		placeholder: 'Enter your name',
+		placeholder: 'name',
 		required: true,
 		validation: withStringTrim((value) =>
 			value === '' ? 'Please add your name so we know who you are.' : null
@@ -72,7 +72,7 @@ export const formConfig: LoanFormField[] = [
 		label: 'Email',
 		type: 'email',
 		name: 'email',
-		placeholder: 'Enter your email',
+		placeholder: 'email',
 		required: true,
 		validation: withStringTrim((value) => {
 			if (!value) return 'Please share your email so we can contact you.';
@@ -87,7 +87,7 @@ export const formConfig: LoanFormField[] = [
 		label: 'Phone Number',
 		type: 'text',
 		name: 'phoneNumber',
-		placeholder: 'Enter your phone number',
+		placeholder: 'phone',
 		required: true,
 		validation: withStringTrim((value) => {
 			if (!value) return 'Please enter your phone number so we can reach you.';

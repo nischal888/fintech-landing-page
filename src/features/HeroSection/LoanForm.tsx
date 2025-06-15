@@ -159,7 +159,7 @@ const LoanForm: React.FC = () => {
 		<>
 			<form onSubmit={handleSubmit} className="text-left">
 				<div className="grid grid-cols-2 gap-6 mb-6">
-					<div>
+					<div className="relative">
 						<label
 							htmlFor="loan-amount"
 							className="block text-sm text-body mb-1"
@@ -173,7 +173,7 @@ const LoanForm: React.FC = () => {
 							onChange={handleChange}
 							aria-label="Select loan amount"
 						>
-							<option value="">please select</option>
+							<option value="">select</option>
 							{formConfig
 								.find((f) => f.name === 'loanAmount')
 								?.options?.map((opt) => (
@@ -191,7 +191,7 @@ const LoanForm: React.FC = () => {
 						<label className="block text-sm text-body mb-1">
 							Estimated Monthly Pay
 						</label>
-						<p className="mt-1 text-2xl text-body">
+						<p className="mt-1 text-xl  md:text-2xl text-body">
 							{monthlyPayment ? monthlyPayment.toFixed(2) + ' €' : '-'}
 						</p>
 					</div>
