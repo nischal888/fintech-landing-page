@@ -13,7 +13,10 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
 	return (
 		<button
-			className={`w-full py-3 text-base rounded-md bg-accent text-white hover:bg-primary-dark focus:ring-primary transform transition-transform duration-200 hover:scale-105 active:scale-95 ${className}`}
+			className={`w-full py-3 text-base rounded-md bg-accent
+				 text-white hover:bg-primary-dark focus:ring-primary 
+				 transform transition-transform duration-200 hover:scale-105 
+				 active:scale-95 ${className}`}
 			{...props}
 		>
 			{children}

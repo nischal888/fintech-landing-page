@@ -74,7 +74,8 @@ const Footer: React.FC = () => {
 									{footerLinks.about.map((link) => (
 										<li
 											key={link}
-											className="text-surface text-sm hover:text-white transition-colors leading-relaxed whitespace-nowrap"
+											className="text-surface text-sm hover:text-white transition-colors 
+											leading-relaxed whitespace-nowrap"
 										>
 											{link}
 										</li>
@@ -88,7 +89,8 @@ const Footer: React.FC = () => {
 									{footerLinks.disclosure.map((link) => (
 										<li
 											key={link}
-											className="text-surface text-sm hover:text-white transition-colors leading-relaxed whitespace-nowrap"
+											className="text-surface text-sm hover:text-white 
+											transition-colors leading-relaxed whitespace-nowrap"
 										>
 											{link}
 										</li>
@@ -102,7 +104,8 @@ const Footer: React.FC = () => {
 									{footerLinks.useful.map((link) => (
 										<li
 											key={link}
-											className="text-surface text-sm hover:text-white transition-colors leading-relaxed whitespace-nowrap"
+											className="text-surface text-sm hover:text-white 
+											transition-colors leading-relaxed whitespace-nowrap"
 										>
 											{link}
 										</li>

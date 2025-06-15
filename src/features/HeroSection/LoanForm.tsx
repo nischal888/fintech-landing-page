@@ -164,7 +164,7 @@ const LoanForm: React.FC = () => {
 							htmlFor="loan-amount"
 							className="block text-sm text-body mb-1"
 						>
-							Loan Amount
+							Loan Amount.
 						</label>
 						<Select
 							id="loan-amount"
@@ -191,8 +191,32 @@ const LoanForm: React.FC = () => {
 						<label className="block text-sm text-body mb-1">
 							Estimated Monthly Pay
 						</label>
-						<p className="mt-1 text-xl  md:text-2xl text-body">
+						<p className="mt-1 text-xl md:text-2xl text-body flex items-center justify-center">
 							{monthlyPayment ? monthlyPayment.toFixed(2) + ' €' : '-'}
+
+							{/* Tooltip icon wrapper */}
+							<div className="relative group ml-2 cursor-pointer">
+								{/* Info icon */}
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									className="h-4 w-4 text-gray-400 hover:text-gray-600"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+								>
+									<path
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										strokeWidth="2"
+										d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"
+									/>
+								</svg>
+
+								{/* Tooltip */}
+								<div className="absolute bottom-full left-1/2 z-10 mb-2 w-32 -translate-x-1/2 scale-0 transform rounded border border-gray-300 bg-white px-2 py-1 text-xs text-gray-700 opacity-0 shadow-sm transition-all group-hover:scale-100 group-hover:opacity-100">
+									at 5% interest
+								</div>
+							</div>
 						</p>
 					</div>
 				</div>
@@ -208,9 +232,35 @@ const LoanForm: React.FC = () => {
 						/>
 						<label
 							htmlFor="co-applicant"
-							className="ml-2 block text-sm text-body"
+							className="ml-2 flex items-center text-sm text-body"
 						>
 							I'm applying with a co-applicant
+							<div className="relative group ml-1">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									className="h-4 w-4 text-gray-400 hover:text-gray-600"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+								>
+									<path
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										strokeWidth="2"
+										d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"
+									/>
+								</svg>
+
+								<div
+									className="absolute bottom-full left-1/2 z-10 mb-1 w-40 -translate-x-1/2 scale-0 transform
+                                     rounded border border-gray-300 bg-white px-2 py-1 text-xs text-gray-600
+                                     opacity-0 shadow-sm transition-all group-hover:scale-100 group-hover:opacity-100"
+								>
+									If you check this, the Apply button will change to ‘Next’.
+									Please complete this form and click Next to add your
+									co-applicant.
+								</div>
+							</div>
 						</label>
 					</div>
 				</div>
@@ -282,16 +332,18 @@ const LoanForm: React.FC = () => {
 				</div>
 
 				<Button type="submit" className="mt-6">
-					{values.coApplicant && !showCoApplicantForm ? 'Next' : 'Submit'}
+					{values.coApplicant && !showCoApplicantForm ? 'Next' : 'Apply'}
 				</Button>
 			</form>
 			{submissionStatus === 'success' && (
 				<div
-					className={`fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white text-sm px-4 py-2 rounded shadow-lg z-50 transition-all duration-500 ${
-						submissionStatus === 'success'
-							? 'opacity-100 translate-y-0'
-							: 'opacity-0 translate-y-4 pointer-events-none'
-					}`}
+					className={`fixed bottom-4 left-1/2 transform -translate-x-1/2
+						 bg-green-600 text-white text-sm px-4 py-2 rounded 
+						 shadow-lg z-50 transition-all duration-500 ${
+								submissionStatus === 'success'
+									? 'opacity-100 translate-y-0'
+									: 'opacity-0 translate-y-4 pointer-events-none'
+							}`}
 				>
 					Thank you! We've received your application and will be in touch soon.
 				</div>
