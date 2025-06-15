@@ -1,4 +1,3 @@
-// src/components/features/MainContent/MainContent.tsx
 import React from 'react';
 import Container from '@/components/ui/Container';
 import ServiceCard from './ServiceCard';

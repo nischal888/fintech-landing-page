@@ -4,7 +4,7 @@ export interface LoanFormField {
 	type: 'text' | 'email' | 'checkbox' | 'select';
 	name: string;
 	placeholder?: string;
-	options?: string[]; // for select
+	options?: string[];
 	required?: boolean;
 	validation?: (value: string | boolean) => string | null;
 }
@@ -54,7 +54,6 @@ export const formConfig: LoanFormField[] = [
 		label: "I'm applying with a co-applicant",
 		type: 'checkbox',
 		name: 'coApplicant',
-		// optional: you can add boolean validation if needed
 	},
 	{
 		id: 'name',

@@ -21,7 +21,6 @@ const Header: React.FC = () => {
 		};
 		window.addEventListener('hashchange', onHashChange);
 
-		// Optional: check hash on load
 		onHashChange();
 
 		return () => window.removeEventListener('hashchange', onHashChange);
@@ -67,7 +66,7 @@ const Header: React.FC = () => {
 						navLinks={navLinks}
 						isMobile
 						onLinkClick={() => setIsMenuOpen(false)}
-						activeHref={activeHref} // pass activeHref here too
+						activeHref={activeHref}
 					/>
 				</div>
 			)}

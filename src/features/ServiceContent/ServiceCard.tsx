@@ -1,4 +1,3 @@
-// src/components/features/MainContent/ServiceCard.tsx
 import React from 'react';
 import { type Service } from './types';
 
