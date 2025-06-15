@@ -14,8 +14,8 @@ interface FormValues {
 const calculateMonthlyPayment = (amount: number): number => {
 	const months = 12;
 	const annualRate = 0.05;
-	const total = amount * (1 + annualRate);
-	return total / months;
+	const monthlyRate = annualRate / 12;
+	return (amount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -months));
 };
 
 const LoanForm: React.FC = () => {
