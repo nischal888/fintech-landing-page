@@ -6,10 +6,35 @@ export interface LoanFormField {
 	placeholder?: string;
 	options?: string[]; // for select
 	required?: boolean;
-	validation?: (value: any) => string | null; // return error message or null
+	validation?: (value: string | boolean) => string | null;
 }
 
 const loanAmounts = Array.from({ length: 20 }, (_, i) => `${(i + 1) * 1000} €`);
+
+type Validator<T> = (value: T) => string | null;
+
+function withStringTrim(
+	validator: Validator<string>
+): Validator<string | boolean> {
+	return (value) => {
+		if (typeof value !== 'string') {
+			return 'Invalid value type';
+		}
+		const trimmed = value.trim();
+		return validator(trimmed);
+	};
+}
+
+function withBooleanCheck(
+	validator: Validator<boolean>
+): Validator<string | boolean> {
+	return (value) => {
+		if (typeof value !== 'boolean') {
+			return 'Invalid value type';
+		}
+		return validator(value);
+	};
+}
 
 export const formConfig: LoanFormField[] = [
 	{
@@ -19,16 +44,17 @@ export const formConfig: LoanFormField[] = [
 		name: 'loanAmount',
 		options: loanAmounts,
 		required: true,
-		validation: (value) => {
+		validation: withStringTrim((value) => {
 			if (!value) return 'Please choose a loan amount.';
 			return null;
-		},
+		}),
 	},
 	{
 		id: 'co-applicant',
 		label: "I'm applying with a co-applicant",
 		type: 'checkbox',
 		name: 'coApplicant',
+		// optional: you can add boolean validation if needed
 	},
 	{
 		id: 'name',
@@ -37,10 +63,9 @@ export const formConfig: LoanFormField[] = [
 		name: 'name',
 		placeholder: 'Enter your name',
 		required: true,
-		validation: (value) =>
-			value.trim() === ''
-				? 'Please add your name so we know who you are.'
-				: null,
+		validation: withStringTrim((value) =>
+			value === '' ? 'Please add your name so we know who you are.' : null
+		),
 	},
 	{
 		id: 'email',
@@ -49,13 +74,13 @@ export const formConfig: LoanFormField[] = [
 		name: 'email',
 		placeholder: 'Enter your email',
 		required: true,
-		validation: (value) => {
+		validation: withStringTrim((value) => {
 			if (!value) return 'Please share your email so we can contact you.';
 			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 			return emailRegex.test(value)
 				? null
 				: 'Oops, that email doesn’t look right. Could you check it?';
-		},
+		}),
 	},
 	{
 		id: 'phone-number',
@@ -64,15 +89,14 @@ export const formConfig: LoanFormField[] = [
 		name: 'phoneNumber',
 		placeholder: 'Enter your phone number',
 		required: true,
-		validation: (value) => {
-			if (!value.trim())
-				return 'Please enter your phone number so we can reach you.';
+		validation: withStringTrim((value) => {
+			if (!value) return 'Please enter your phone number so we can reach you.';
 			const phoneRegex =
 				/^(?:\+358|0)\s?(?:4[0-1]|4[4-6]|49|50|57|7[1-4]|77|80|90|[2-3]|[5-6]|8|9|1[3-9])\s?[0-9]{5,8}$/;
 			return phoneRegex.test(value)
 				? null
 				: 'Unmatched. Try a Finnish like 040 123 4567 or 09 123 4567';
-		},
+		}),
 	},
 	{
 		id: 'terms',
@@ -80,6 +104,8 @@ export const formConfig: LoanFormField[] = [
 		type: 'checkbox',
 		name: 'terms',
 		required: true,
-		validation: (value) => (value ? null : 'You must accept the terms'),
+		validation: withBooleanCheck((value) =>
+			value ? null : 'You must accept the terms'
+		),
 	},
 ];

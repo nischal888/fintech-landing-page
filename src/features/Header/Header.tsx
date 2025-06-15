@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Container from '@/components/ui/Container';
 import Navigation from './Navigation';
 
 const Header: React.FC = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const [activeHref, setActiveHref] = useState(
+		window.location.hash || '#hometop'
+	);
+
 	const navLinks = [
 		{ label: 'Home', href: '#hometop' },
 		{ label: 'Services', href: '#services' },
@@ -11,11 +15,27 @@ const Header: React.FC = () => {
 		{ label: 'Contact', href: '#contact' },
 	];
 
+	useEffect(() => {
+		const onHashChange = () => {
+			setActiveHref(window.location.hash || '#hometop');
+		};
+		window.addEventListener('hashchange', onHashChange);
+
+		// Optional: check hash on load
+		onHashChange();
+
+		return () => window.removeEventListener('hashchange', onHashChange);
+	}, []);
+
 	return (
 		<header className="sticky top-0 z-50 bg-white py-4 shadow-sm">
 			<Container className="flex items-center justify-between">
 				<div className="text-2xl font-bold text-primary">FinTech</div>
-				<Navigation navLinks={navLinks} />
+				<Navigation
+					navLinks={navLinks}
+					activeHref={activeHref}
+					setActiveHref={setActiveHref}
+				/>
 				<div className="md:hidden">
 					<button onClick={() => setIsMenuOpen(!isMenuOpen)}>
 						<svg
@@ -42,6 +62,7 @@ const Header: React.FC = () => {
 						navLinks={navLinks}
 						isMobile
 						onLinkClick={() => setIsMenuOpen(false)}
+						activeHref={activeHref} // pass activeHref here too
 					/>
 				</div>
 			)}

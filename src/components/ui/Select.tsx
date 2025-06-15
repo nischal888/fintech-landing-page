@@ -12,7 +12,7 @@ const Select: React.FC<SelectProps> = ({
 }) => {
 	return (
 		<select
-			className={`mt-1 block pr-10 w-full px-4 py-3 text-base border border-inputBorder focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md shadow-sm ${className}`}
+			className={`mt-1 block pr-10 w-full px-4 py-3 text-base border border-inputBorder focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md shadow-sm transition-colors duration-200 ease-in-out ${className}`}
 			{...props}
 		>
 			{children}
