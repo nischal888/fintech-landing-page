@@ -1,6 +1,6 @@
-# Simple Loan Application Landing Page
+# Minimal Loan Application Landing Page
 
-A simple landing page where users can easily apply for loans.
+A responsive and intuitive landing page where users can quickly apply for loans.
 
 ## Technologies Used
 
