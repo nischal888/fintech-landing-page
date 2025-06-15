@@ -329,7 +329,11 @@ const LoanForm: React.FC = () => {
 					/>
 					<label htmlFor="terms" className="ml-2 block text-sm text-body">
 						I accept the{' '}
-						<a href="#" className="text-primary hover:underline">
+						<a
+							href="#"
+							onClick={(e) => e.preventDefault()}
+							className="text-primary hover:underline"
+						>
 							terms and conditions
 						</a>
 					</label>
