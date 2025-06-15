@@ -213,7 +213,11 @@ const LoanForm: React.FC = () => {
 								</svg>
 
 								{/* Tooltip */}
-								<div className="absolute bottom-full left-1/2 z-10 mb-2 w-32 -translate-x-1/2 scale-0 transform rounded border border-gray-300 bg-white px-2 py-1 text-xs text-gray-700 opacity-0 shadow-sm transition-all group-hover:scale-100 group-hover:opacity-100">
+								<div
+									className="absolute bottom-full left-1/2 z-10 mb-2 w-32 -translate-x-1/2 scale-0
+								 transform rounded border border-gray-300 bg-white px-2 py-1 text-xs text-gray-700 
+								 opacity-0 shadow-sm transition-all group-hover:scale-100 group-hover:opacity-100"
+								>
 									at 5% interest
 								</div>
 							</div>
