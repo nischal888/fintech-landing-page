@@ -4,6 +4,9 @@ import Input from '@/components/ui/Input';
 import Checkbox from '@/components/ui/Checkbox';
 import Select from '@/components/ui/Select';
 import Button from '@/components/ui/Button';
+import { calculateMonthlyPayment } from '@/utils/calculateMonthlyPayment';
+import { validateField } from '@/utils/validators';
+import { generateInitialValues } from '@/utils/defaultValues';
 
 type FormValue = string | boolean;
 
@@ -11,18 +14,8 @@ interface FormValues {
 	[key: string]: FormValue;
 }
 
-const calculateMonthlyPayment = (amount: number): number => {
-	const months = 12;
-	const annualRate = 0.05;
-	const monthlyRate = annualRate / 12;
-	return (amount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -months));
-};
-
 const LoanForm: React.FC = () => {
-	const initialValues = formConfig.reduce((acc, field) => {
-		acc[field.name] = field.type === 'checkbox' ? false : '';
-		return acc;
-	}, {} as FormValues);
+	const initialValues = generateInitialValues();
 
 	const [values, setValues] = useState<FormValues>(initialValues);
 	const [errors, setErrors] = useState<{ [key: string]: string | null }>({});
@@ -38,12 +31,6 @@ const LoanForm: React.FC = () => {
 	const [submissionStatus, setSubmissionStatus] = useState<'idle' | 'success'>(
 		'idle'
 	);
-
-	const validateField = (name: string, value: FormValue): string | null => {
-		const field = formConfig.find((f) => f.name === name);
-		if (!field || !field.validation) return null;
-		return field.validation(value);
-	};
 
 	const handleChange = (
 		e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
