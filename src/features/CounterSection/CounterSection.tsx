@@ -15,7 +15,7 @@ const getTargetDate = (): string => {
 
 	return counterType === 'newyear'
 		? `${year}-12-31T00:00:00`
-		: `${year}-06-20T00:00:00`; // Default to Midsummer
+		: `${year}-08-20T00:00:00`; // Default to Music festival
 };
 
 const calculateTimeLeft = (target: string): TimeLeft => {
@@ -76,7 +76,7 @@ const CounterSection: React.FC = () => {
 	const eventName =
 		new URLSearchParams(window.location.search).get('counter') === 'newyear'
 			? 'New Year'
-			: 'Midsummer';
+			: 'Helsinki Music Festival';
 
 	const units: (keyof TimeLeft)[] = ['days', 'hours', 'minutes', 'seconds'];
 
